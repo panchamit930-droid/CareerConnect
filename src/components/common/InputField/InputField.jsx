@@ -8,6 +8,7 @@ const InputField = ({
   placeholder,
   onChange,
   error,
+  disabled = false,
 }) => {
   return (
     <div>
@@ -22,7 +23,8 @@ const InputField = ({
         value={value}
         placeholder={placeholder}
         onChange={onChange}
-        className={`${styles.input} ${error ? styles.errorInput : ""}`}
+        disabled={disabled}
+        className={`${styles.input} ${error ? styles.errorInput : ""} ${disabled ? "bg-gray-100 cursor-not-allowed" : ""}`}
       />
 
       {error && <p className={styles.error}>{error}</p>}

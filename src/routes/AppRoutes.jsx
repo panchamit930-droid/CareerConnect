@@ -10,6 +10,11 @@ import PostJob from "../pages/PostJob";
 import ManageJobs from "../pages/ManageJobs";
 import EditJob from "../pages/EditJob";
 import Jobs from "../pages/Jobs";
+import MyApplications from "../pages/MyApplications";
+import ApplicantProfile from "../pages/ApplicantProfile";
+import Profile from "../pages/Profile";
+import Applicants from "../pages/Applicants";
+import JobDetails from "../pages/JobDetails"
 
 const AppRoutes = () => {
   return (
@@ -63,6 +68,46 @@ const AppRoutes = () => {
         element={
           <ProtectedRoute>
             <Jobs />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/my-applications"
+        element={
+          <ProtectedRoute allowedRole="jobSeeker">
+            <MyApplications />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/applicant/:id"
+        element={
+          <ProtectedRoute allowedRole="employer">
+            <ApplicantProfile />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/profile"
+        element={
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/jobs/:jobId/applicants"
+        element={
+          <ProtectedRoute allowedRole="employer">
+            <Applicants />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/jobs/:id"
+        element={
+          <ProtectedRoute allowedRole="jobSeeker">
+            <JobDetails />
           </ProtectedRoute>
         }
       />

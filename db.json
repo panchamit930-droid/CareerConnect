@@ -1,18 +1,19 @@
 {
   "users": [
     {
-      "id": 1785605899563,
-      "fullName": "lachu",
-      "email": "lachu@gmail.com",
-      "password": "123456",
-      "role": "jobSeeker"
-    },
-    {
       "id": 1785606455381,
       "fullName": "Panchami T",
       "email": "panchamit930@gmail.com",
-      "password": "123456",
-      "role": "jobSeeker"
+      "role": "jobSeeker",
+      "phone": "09207850171",
+      "location": "Chelavoor",
+      "education": "MSc",
+      "experience": "2 yrs",
+      "skills": "JS, ReactJS",
+      "about": "dadiusahxaxaxaxyuaxb",
+      "github": "sdscsc",
+      "linkedin": "https://www.linkedin.com/in/panchami-t-a55036306/",
+      "portfolio": ""
     },
     {
       "id": 1785606577365,
@@ -28,7 +29,69 @@
       "email": "google@gmail.com",
       "password": "789456",
       "role": "employer"
+    },
+    {
+      "id": 1785749463740,
+      "fullName": "lachu",
+      "email": "lachu@gmail.com",
+      "password": "123456",
+      "role": "jobSeeker",
+      "phone": "09207850171",
+      "location": "Kochi",
+      "education": "Msc",
+      "experience": "2 yrs",
+      "skills": "JS, ReactJS",
+      "about": "sajkbfjskbcjkasbcjbabcbbascb abdajc adkajxxxxxxxxxxxxxxxc c c ddddddddddddddddddddddddddddd ggggdg dvdvd sf sgs gsg gsg",
+      "github": "",
+      "linkedin": "https://www.linkedin.com/in/panchami-t/",
+      "portfolio": ""
     }
   ],
-  "jobs": []
+  "jobs": [
+    {
+      "id": 1785652854995,
+      "title": "React developer",
+      "location": "Kochi",
+      "jobType": "Part Time",
+      "salary": "6.5 LPA",
+      "experience": "2 yrs",
+      "vacancies": 5,
+      "skills": [
+        "JS",
+        "ReactJS"
+      ],
+      "responsibilities": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "requirements": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "description": "vsd sdgkfs fif fhefe fhfiwf wefwefhwioe fowhf fhfhf sdisdhLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "companyName": "Google",
+      "employerId": 1785609570112,
+      "postedBy": "ian"
+    }
+  ],
+  "applications": [
+    {
+      "id": 1785659006095,
+      "jobId": 1785652854995,
+      "employerId": 1785609570112,
+      "applicantId": 1785606455381,
+      "status": "Shortlisted",
+      "appliedDate": "8/2/2026"
+    },
+    {
+      "id": 1785748720370,
+      "jobId": 1785652854995,
+      "employerId": 1785609570112,
+      "applicantId": 1785605899563,
+      "status": "Pending",
+      "appliedDate": "8/3/2026"
+    },
+    {
+      "id": 1785749699912,
+      "jobId": 1785652854995,
+      "employerId": 1785609570112,
+      "applicantId": 1785749463740,
+      "status": "Pending",
+      "appliedDate": "8/3/2026"
+    }
+  ]
 }

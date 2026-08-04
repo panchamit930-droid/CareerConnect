@@ -26,7 +26,7 @@ const DashboardNavbar = () => {
 
               <NavLink to="/jobs">Jobs</NavLink>
 
-              <NavLink to="/applications">Applications</NavLink>
+              <NavLink to="/my-applications">Applications</NavLink>
 
               <NavLink to="/profile">Profile</NavLink>
             </>
@@ -43,6 +43,10 @@ const DashboardNavbar = () => {
           )}
 
           <FaMoon className="cursor-pointer text-lg" />
+
+          <span className="font-medium">
+            Hi, {currentUser?.fullName || currentUser?.companyName}
+          </span>
 
           <button
             onClick={handleLogout}

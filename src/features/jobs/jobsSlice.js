@@ -4,12 +4,14 @@ import {
   getJobs,
   deleteJob,
   updateJob,
+  getJobById,
 } from "../../services/jobService";
 
 const initialState = {
   jobs: [],
   loading: false,
   error: null,
+  selectedJob: null,
 };
 
 export const getJobsThunk = createAsyncThunk(
@@ -56,6 +58,17 @@ export const updateJobThunk = createAsyncThunk(
   },
 );
 
+export const getJobByIdThunk = createAsyncThunk(
+  "jobs/getJobById",
+  async (id, { rejectWithValue }) => {
+    try {
+      return await getJobById(id);
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  },
+);
+
 const jobsSlice = createSlice({
   name: "jobs",
   initialState,
@@ -94,6 +107,20 @@ const jobsSlice = createSlice({
         if (index !== -1) {
           state.jobs[index] = action.payload;
         }
+      })
+
+      .addCase(getJobByIdThunk.pending, (state) => {
+        state.loading = true;
+      })
+
+      .addCase(getJobByIdThunk.fulfilled, (state, action) => {
+        state.loading = false;
+        state.selectedJob = action.payload;
+      })
+
+      .addCase(getJobByIdThunk.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
       });
   },
 });

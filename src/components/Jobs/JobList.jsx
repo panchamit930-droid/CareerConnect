@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { getJobsThunk } from "../../features/jobs/jobsSlice";
-import JobCard from "./JobCard";
+import EmployerJobCard from "./EmployerJobCard";
 
 const JobList = () => {
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ const JobList = () => {
   return (
     <div className="grid md:grid-cols-2 gap-6">
       {employerJobs.map((job) => (
-        <JobCard key={job.id} job={job} />
+        <EmployerJobCard key={job.id} job={job} />
       ))}
     </div>
   );

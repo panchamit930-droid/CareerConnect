@@ -57,6 +57,15 @@ const authSlice = createSlice({
     clearError: (state) => {
       state.error = null;
     },
+
+    updateCurrentUser: (state, action) => {
+      state.currentUser = action.payload;
+
+      localStorage.setItem(
+        "careerconnect_current_user",
+        JSON.stringify(action.payload),
+      );
+    },
   },
 
   extraReducers: (builder) => {
@@ -119,6 +128,6 @@ const authSlice = createSlice({
   },
 });
 
-export const { clearError } = authSlice.actions;
+export const { clearError ,updateCurrentUser} = authSlice.actions;
 
 export default authSlice.reducer;

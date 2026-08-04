@@ -79,7 +79,27 @@ export const validateJob = (formData) => {
   if (!formData.location.trim()) errors.location = "Location is required";
   if (!formData.jobType.trim()) errors.jobType = "Job type is required";
   if (!formData.salary.trim()) errors.salary = "Salary is required";
-  if (!formData.description.trim()) errors.description = "Description is required";
+  if (!formData.description.trim())
+    errors.description = "Description is required";
+  if (!formData.experience.trim()) {
+    errors.experience = "Experience is required";
+  }
+
+  if (!formData.vacancies) {
+    errors.vacancies = "Vacancies are required";
+  }
+
+  if (!formData.skills.trim()) {
+    errors.skills = "Skills are required";
+  }
+
+  if (!formData.responsibilities.trim()) {
+    errors.responsibilities = "Responsibilities are required";
+  }
+
+  if (!formData.requirements.trim()) {
+    errors.requirements = "Requirements are required";
+  }
 
   return errors;
 };

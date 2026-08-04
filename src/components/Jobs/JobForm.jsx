@@ -24,6 +24,11 @@ const JobForm = () => {
     location: "",
     jobType: "",
     salary: "",
+    experience: "",
+    vacancies: "",
+    skills: "",
+    responsibilities: "",
+    requirements: "",
     description: "",
   });
 
@@ -39,6 +44,13 @@ const JobForm = () => {
           location: selectedJob.location,
           jobType: selectedJob.jobType,
           salary: selectedJob.salary,
+          experience: selectedJob.experience || "",
+          vacancies: selectedJob.vacancies || "",
+          skills: Array.isArray(selectedJob.skills)
+            ? selectedJob.skills.join(", ")
+            : selectedJob.skills || "",
+          responsibilities: selectedJob.responsibilities || "",
+          requirements: selectedJob.requirements || "",
           description: selectedJob.description,
         });
       }
@@ -67,12 +79,21 @@ const JobForm = () => {
       return;
     }
 
+    const jobData = {
+      ...formData,
+      vacancies: Number(formData.vacancies),
+      skills: formData.skills
+        .split(",")
+        .map((skill) => skill.trim())
+        .filter(Boolean),
+    };
+
     if (id) {
       await dispatch(
         updateJobThunk({
           id: Number(id),
 
-          ...formData,
+          ...jobData,
 
           companyName: currentUser.companyName,
 
@@ -88,7 +109,7 @@ const JobForm = () => {
     } else {
       await dispatch(
         createJobThunk({
-          ...formData,
+          ...jobData,
 
           companyName: currentUser.companyName,
 
@@ -106,10 +127,13 @@ const JobForm = () => {
       location: "",
       jobType: "",
       salary: "",
+      experience: "",
+      vacancies: "",
+      skills: "",
+      responsibilities: "",
+      requirements: "",
       description: "",
     });
-
-    alert("Job posted successfully!");
   };
 
   return (
@@ -161,6 +185,66 @@ const JobForm = () => {
         onChange={handleChange}
         error={errors.salary}
       />
+
+      <InputField
+        label="Experience Required"
+        name="experience"
+        value={formData.experience}
+        placeholder="e.g. 2+ Years"
+        onChange={handleChange}
+        error={errors.experience}
+      />
+
+      <InputField
+        label="Vacancies"
+        type="number"
+        name="vacancies"
+        value={formData.vacancies}
+        placeholder="e.g. 3"
+        onChange={handleChange}
+        error={errors.vacancies}
+      />
+
+      <InputField
+        label="Skills Required"
+        name="skills"
+        value={formData.skills}
+        placeholder="React, Redux, JavaScript"
+        onChange={handleChange}
+        error={errors.skills}
+      />
+
+      <div>
+        <label className="block mb-2 font-medium">Responsibilities</label>
+
+        <textarea
+          rows="4"
+          name="responsibilities"
+          value={formData.responsibilities}
+          onChange={handleChange}
+          className="w-full border rounded-lg px-4 py-3"
+        />
+
+        {errors.responsibilities && (
+          <p className="text-red-500 text-sm mt-1">{errors.responsibilities}</p>
+        )}
+      </div>
+
+      <div>
+        <label className="block mb-2 font-medium">Requirements</label>
+
+        <textarea
+          rows="4"
+          name="requirements"
+          value={formData.requirements}
+          onChange={handleChange}
+          className="w-full border rounded-lg px-4 py-3"
+        />
+
+        {errors.requirements && (
+          <p className="text-red-500 text-sm mt-1">{errors.requirements}</p>
+        )}
+      </div>
 
       <div>
         <label className="block mb-2 font-medium">Description</label>

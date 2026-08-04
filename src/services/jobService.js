@@ -23,3 +23,8 @@ export const updateJob = async (job) => {
   const response = await api.put(`/jobs/${job.id}`, job);
   return response.data;
 };
+
+export const getJobById = async (id) => {
+  const response = await api.get(`/jobs/${id}`);
+  return response.data;
+};

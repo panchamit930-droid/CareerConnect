@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import DashboardNavbar from "../components/Dashboard/DashboardNavbar";
-import JobCard from "../components/Jobs/JobCard";
+import JobSeekerJobCard from "../components/Jobs/JobSeekerJobCard";
 import { getJobsThunk } from "../features/jobs/jobsSlice";
 import SearchBar from "../components/Jobs/SearchBar";
 
@@ -40,7 +40,7 @@ const Jobs = () => {
             <h2>Loading...</h2>
           ) : jobs.length > 0 ? (
             filteredJobs.map((job) => (
-              <JobCard key={job.id} job={job} isEmployer={false} />
+              <JobSeekerJobCard key={job.id} job={job} />
             ))
           ) : (
             <p>No jobs available.</p>
