@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 import InputField from "../common/InputField/InputField";
 import Button from "../Button/Button";
@@ -40,7 +41,7 @@ const EmployerForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setErrors({});
     const validationErrors = validateEmployer(formData);
 
     if (Object.keys(validationErrors).length > 0) {
@@ -54,7 +55,7 @@ const EmployerForm = () => {
       registerUserThunk({
         ...userData,
         role: "employer",
-      })
+      }),
     );
 
     if (registerUserThunk.fulfilled.match(result)) {
@@ -66,14 +67,16 @@ const EmployerForm = () => {
         confirmPassword: "",
       });
 
+      toast.success("Registration successful!");
       navigate("/login");
+    } else {
+      toast.error(result.payload || "Registration failed!");
     }
   };
 
   return (
     <div className="mt-8 bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
       <form onSubmit={handleSubmit} className="space-y-5">
-
         <InputField
           label="Company Name"
           name="companyName"
@@ -122,20 +125,19 @@ const EmployerForm = () => {
           error={errors.confirmPassword}
         />
 
-        {error && (
-          <p className="text-red-500 text-center">
-            {error}
-          </p>
-        )}
+        {error && <p className="text-red-500 text-center text-sm">{error}</p>}
 
         <Button type="submit" disabled={loading}>
           {loading ? "Registering..." : "Register"}
         </Button>
       </form>
 
-      <p className="text-center mt-6">
+      <p className="text-center mt-6 text-gray-600 dark:text-gray-300">
         Already have an account?{" "}
-        <NavLink to="/login" className="text-blue-600">
+        <NavLink
+          to="/login"
+          className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition"
+        >
           Login
         </NavLink>
       </p>

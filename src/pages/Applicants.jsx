@@ -4,13 +4,13 @@ import { useParams } from "react-router-dom";
 
 import DashboardNavbar from "../components/Dashboard/DashboardNavbar";
 import ApplicantCard from "../components/Applications/ApplicantCard";
+import EmptyState from "../components/common/EmptyState";
 
 import { getApplicationsThunk } from "../features/applications/applicationSlice";
 import { getUsersThunk } from "../features/users/userSlice";
 
 const Applicants = () => {
   const dispatch = useDispatch();
-
   const { jobId } = useParams();
 
   const { applications, loading } = useSelector((state) => state.applications);
@@ -30,19 +30,34 @@ const Applicants = () => {
     <>
       <DashboardNavbar />
 
-      <div className="max-w-6xl mx-auto px-6 py-8">
-        <h1 className="text-3xl font-bold">Applicants</h1>
+      <div className="max-w-7xl mx-auto px-6 py-10">
+        <div className="mb-10">
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
+            Applicants
+          </h1>
 
-        <p className="text-gray-500 mt-2">
-          Total Applicants: {jobApplications.length}
-        </p>
+          <p className="mt-2 text-gray-500 dark:text-gray-400">
+            Total Applicants:
+            <span className="ml-2 font-semibold text-blue-600">
+              {jobApplications.length}
+            </span>
+          </p>
+        </div>
 
         {loading ? (
-          <h2 className="mt-8">Loading...</h2>
+          <div className="flex justify-center py-20">
+            <p className="text-lg text-gray-500 dark:text-gray-400">
+              Loading applicants...
+            </p>
+          </div>
         ) : jobApplications.length === 0 ? (
-          <h2 className="mt-8 text-gray-500">No applicants yet.</h2>
+          <EmptyState
+            icon="👥"
+            title="No Applicants Yet"
+            description="Applications will appear here once candidates apply for this job."
+          />
         ) : (
-          <div className="grid md:grid-cols-2 gap-6 mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {jobApplications.map((application) => {
               const applicant = users.find(
                 (user) => user.id === application.applicantId,

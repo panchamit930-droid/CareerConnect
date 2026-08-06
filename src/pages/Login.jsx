@@ -1,9 +1,16 @@
 import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+
 import InputField from "../components/common/InputField/InputField";
 import Button from "../components/Button/Button";
-import { loginUserThunk, clearError } from "../features/auth/authSlice";
+
+import {
+  loginUserThunk,
+  clearError,
+} from "../features/auth/authSlice";
+
 import { validateLogin } from "../utils/validation";
 
 const Login = () => {
@@ -29,13 +36,11 @@ const Login = () => {
       [name]: value,
     }));
 
-    // Clear field error while typing
     setErrors((prev) => ({
       ...prev,
       [name]: "",
     }));
 
-    // Clear redux error
     if (error) {
       dispatch(clearError());
     }
@@ -43,6 +48,8 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setErrors({});
 
     const validationErrors = validateLogin(formData);
 
@@ -54,11 +61,15 @@ const Login = () => {
     const result = await dispatch(loginUserThunk(formData));
 
     if (loginUserThunk.fulfilled.match(result)) {
+      toast.success("Login successful!");
+
       if (result.payload.role === "employer") {
         navigate("/employer/dashboard");
       } else {
         navigate("/jobseeker/dashboard");
       }
+    } else {
+      toast.error(result.payload || "Invalid email or password.");
     }
   };
 
@@ -73,11 +84,13 @@ const Login = () => {
   }, [isAuthenticated, currentUser, navigate]);
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 px-4">
-      <div className="w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
-        <h1 className="text-3xl font-bold text-center mb-2">Welcome Back</h1>
+    <section className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 px-4 transition-colors duration-300">
+      <div className="w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 transition-all duration-300">
+        <h1 className="text-3xl font-bold text-center mb-2 text-gray-900 dark:text-white">
+          Welcome Back
+        </h1>
 
-        <p className="text-center text-gray-500 mb-8">
+        <p className="text-center text-gray-500 dark:text-gray-400 mb-8">
           Login to your CareerConnect account
         </p>
 
@@ -90,6 +103,7 @@ const Login = () => {
             placeholder="Enter your email"
             onChange={handleChange}
             error={errors.email}
+            autoComplete="email"
           />
 
           <InputField
@@ -100,9 +114,14 @@ const Login = () => {
             placeholder="Enter your password"
             onChange={handleChange}
             error={errors.password}
+            autoComplete="current-password"
           />
 
-          {error && <p className="text-red-500 text-center text-sm">{error}</p>}
+          {error && (
+            <p className="text-red-500 text-center text-sm">
+              {error}
+            </p>
+          )}
 
           <Button type="submit" disabled={loading}>
             {loading ? "Logging in..." : "Login"}
@@ -111,7 +130,10 @@ const Login = () => {
 
         <p className="text-center mt-6 text-gray-600 dark:text-gray-300">
           Don't have an account?{" "}
-          <NavLink to="/register" className="text-blue-600 hover:underline">
+          <NavLink
+            to="/register"
+            className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium hover:underline"
+          >
             Register
           </NavLink>
         </p>

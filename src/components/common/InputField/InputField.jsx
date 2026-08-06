@@ -24,7 +24,11 @@ const InputField = ({
         placeholder={placeholder}
         onChange={onChange}
         disabled={disabled}
-        className={`${styles.input} ${error ? styles.errorInput : ""} ${disabled ? "bg-gray-100 cursor-not-allowed" : ""}`}
+        className={`${styles.input} ${error ? styles.errorInput : ""} ${
+          disabled
+            ? "bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-300 cursor-not-allowed"
+            : ""
+        }`}
       />
 
       {error && <p className={styles.error}>{error}</p>}

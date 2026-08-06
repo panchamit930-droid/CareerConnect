@@ -14,7 +14,11 @@ import MyApplications from "../pages/MyApplications";
 import ApplicantProfile from "../pages/ApplicantProfile";
 import Profile from "../pages/Profile";
 import Applicants from "../pages/Applicants";
-import JobDetails from "../pages/JobDetails"
+import JobDetails from "../pages/JobDetails";
+import About from "../pages/About";
+import ExploreJobs from "../pages/ExploreJobs";
+import PublicJobDetails from "../pages/PublicJobDetails";
+import NotFound from "../pages/NotFound";
 
 const AppRoutes = () => {
   return (
@@ -22,6 +26,10 @@ const AppRoutes = () => {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/explore-jobs" element={<ExploreJobs />} />
+
+      <Route path="/job/:id" element={<PublicJobDetails />} />
       <Route
         path="/employer/dashboard"
         element={
@@ -111,6 +119,8 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
+
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };

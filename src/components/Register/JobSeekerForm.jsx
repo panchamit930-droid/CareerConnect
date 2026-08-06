@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-
+import { toast } from "react-toastify";
 import { registerUserThunk } from "../../features/auth/authSlice";
 import InputField from "../common/InputField/InputField";
 import Button from "../Button/Button";
@@ -66,7 +66,10 @@ const JobSeekerForm = () => {
         confirmPassword: "",
       });
 
+      toast.success("Registration successful!");
       navigate("/login");
+    } else {
+      toast.error(resultAction.payload || "Registration failed!");
     }
   };
 
@@ -114,7 +117,7 @@ const JobSeekerForm = () => {
 
         {/* Redux Error */}
         {error && <p className="text-center text-red-500 text-sm">{error}</p>}
-
+        
         <Button type="submit" disabled={loading}>
           {loading ? "Registering..." : "Register"}
         </Button>
@@ -122,10 +125,15 @@ const JobSeekerForm = () => {
 
       <p className="text-center mt-6 text-gray-600 dark:text-gray-300">
         Already have an account?{" "}
-        <NavLink to="/login" className="text-blue-600 hover:underline">
+        <NavLink
+          to="/login"
+          className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition"
+        >
           Login
         </NavLink>
       </p>
+
+      
     </div>
   );
 };

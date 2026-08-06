@@ -6,6 +6,9 @@ import { useDispatch } from "react-redux";
 import { getJobsThunk } from "../features/jobs/jobsSlice";
 import { getApplicationsThunk } from "../features/applications/applicationSlice";
 import WelcomeCard from "../components/Dashboard/WelcomeCard";
+import EmployerJobCard from "../components/Jobs/EmployerJobCard";
+import { NavLink } from "react-router-dom";
+import EmptyState from "../components/common/EmptyState";
 
 const EmployerDashboard = () => {
   const { currentUser } = useSelector((state) => state.auth);
@@ -23,6 +26,8 @@ const EmployerDashboard = () => {
   const employerJobs = jobs.filter((job) => job.employerId === currentUser.id);
 
   const jobsPosted = employerJobs.length;
+
+  const recentJobs = [...employerJobs].reverse().slice(0, 3);
 
   const totalApplicants = applications.filter(
     (application) => application.employerId === currentUser.id,
@@ -58,11 +63,34 @@ const EmployerDashboard = () => {
         </div>
 
         <div className="mt-10 bg-white dark:bg-gray-800 rounded-xl shadow p-8">
-          <h2 className="text-2xl font-semibold">Your Posted Jobs</h2>
+          <div className="flex justify-between items-center">
+            <h2 className="text-2xl font-semibold">Recent Job Posts</h2>
 
-          <p className="text-gray-500 mt-3">
-            Here you can view and manage all the jobs you've posted.
-          </p>
+            <NavLink
+              to="/manage-jobs"
+              className="text-blue-600 hover:underline"
+            >
+              View All →
+            </NavLink>
+          </div>
+
+          <p className="text-gray-500 mt-2">Your latest job postings.</p>
+
+          <div className="grid md:grid-cols-2 gap-6 mt-6">
+            {recentJobs.length > 0 ? (
+              recentJobs.map((job) => (
+                <EmployerJobCard key={job.id} job={job} />
+              ))
+            ) : (
+              <EmptyState
+                icon="💼"
+                title="No Jobs Posted Yet"
+                description="Start hiring by posting your first job."
+                buttonText="Post Job"
+                buttonLink="/post-job"
+              />
+            )}
+          </div>
         </div>
       </div>
     </>

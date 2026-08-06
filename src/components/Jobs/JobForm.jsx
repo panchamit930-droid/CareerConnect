@@ -8,6 +8,7 @@ import { createJobThunk, updateJobThunk } from "../../features/jobs/jobsSlice";
 import { validateJob } from "../../utils/validation";
 import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const JobForm = () => {
   const { id } = useParams();
@@ -103,7 +104,7 @@ const JobForm = () => {
         }),
       );
 
-      alert("Job updated successfully!");
+      toast.success("Job updated successfully!");
 
       navigate("/manage-jobs");
     } else {

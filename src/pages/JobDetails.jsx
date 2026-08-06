@@ -6,8 +6,10 @@ import DashboardNavbar from "../components/Dashboard/DashboardNavbar";
 import Button from "../components/Button/Button";
 
 import { getJobByIdThunk } from "../features/jobs/jobsSlice";
-import { applyJobThunk } from "../features/applications/applicationSlice";
-import { getApplicationsThunk } from "../features/applications/applicationSlice";
+import {
+  applyJobThunk,
+  getApplicationsThunk,
+} from "../features/applications/applicationSlice";
 
 const JobDetails = () => {
   const { id } = useParams();
@@ -46,74 +48,116 @@ const JobDetails = () => {
   };
 
   if (loading || !selectedJob) {
-    return <h2 className="text-center mt-10">Loading...</h2>;
+    return (
+      <>
+        <DashboardNavbar />
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex justify-center items-center">
+          <h2 className="text-xl text-gray-700 dark:text-gray-300">
+            Loading...
+          </h2>
+        </div>
+      </>
+    );
   }
 
   return (
     <>
       <DashboardNavbar />
 
-      <div className="max-w-5xl mx-auto p-8">
-        <button onClick={() => navigate(-1)} className="text-blue-600 mb-6">
-          ← Back to Jobs
-        </button>
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div className="max-w-5xl mx-auto px-6 py-8">
+          <button
+            onClick={() => navigate(-1)}
+            className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 mb-6 transition"
+          >
+            ← Back to Jobs
+          </button>
 
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
-          <h1 className="text-4xl font-bold">{selectedJob.title}</h1>
+          <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg p-8">
+            <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
+              {selectedJob.title}
+            </h1>
 
-          <h2 className="text-xl text-gray-600 mt-2">
-            {selectedJob.companyName}
-          </h2>
+            <h2 className="text-xl text-gray-600 dark:text-gray-400 mt-2">
+              {selectedJob.companyName}
+            </h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-            <div>
-              <p className="font-semibold">Location</p>
-              <p>{selectedJob.location}</p>
-            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
+              <div>
+                <p className="font-semibold text-gray-900 dark:text-white">
+                  Location
+                </p>
 
-            <div>
-              <p className="font-semibold">Job Type</p>
-              <p>{selectedJob.jobType}</p>
-            </div>
+                <p className="text-gray-600 dark:text-gray-400">
+                  {selectedJob.location}
+                </p>
+              </div>
 
-            <div>
-              <p className="font-semibold">Salary</p>
-              <p>{selectedJob.salary}</p>
-            </div>
+              <div>
+                <p className="font-semibold text-gray-900 dark:text-white">
+                  Job Type
+                </p>
 
-            <div>
-              <p className="font-semibold">Experience</p>
-              <p>{selectedJob.experience || "-"}</p>
-            </div>
-          </div>
+                <p className="text-gray-600 dark:text-gray-400">
+                  {selectedJob.jobType}
+                </p>
+              </div>
 
-          <div className="mt-10">
-            <h3 className="text-2xl font-semibold">Job Description</h3>
+              <div>
+                <p className="font-semibold text-gray-900 dark:text-white">
+                  Salary
+                </p>
 
-            <p className="mt-3 text-gray-600">{selectedJob.description}</p>
-          </div>
+                <p className="text-gray-600 dark:text-gray-400">
+                  {selectedJob.salary}
+                </p>
+              </div>
 
-          {selectedJob.skills && (
-            <div className="mt-10">
-              <h3 className="text-2xl font-semibold mb-4">Skills Required</h3>
+              <div>
+                <p className="font-semibold text-gray-900 dark:text-white">
+                  Experience
+                </p>
 
-              <div className="flex flex-wrap gap-3">
-                {selectedJob.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="bg-blue-100 text-blue-700 px-4 py-2 rounded-full"
-                  >
-                    {skill}
-                  </span>
-                ))}
+                <p className="text-gray-600 dark:text-gray-400">
+                  {selectedJob.experience || "-"}
+                </p>
               </div>
             </div>
-          )}
 
-          <div className="mt-10">
-            <Button onClick={handleApply} disabled={alreadyApplied}>
-              {alreadyApplied ? "✓ Applied" : "Apply Now"}
-            </Button>
+            <div className="mt-10">
+              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
+                Job Description
+              </h3>
+
+              <p className="mt-3 leading-7 text-gray-600 dark:text-gray-400">
+                {selectedJob.description}
+              </p>
+            </div>
+
+            {selectedJob.skills && (
+              <div className="mt-10">
+                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+                  Skills Required
+                </h3>
+
+                <div className="flex flex-wrap gap-3">
+                  {selectedJob.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <div className="mt-10">
+              <Button onClick={handleApply} disabled={alreadyApplied}>
+                {alreadyApplied ? "✓ Applied" : "Apply Now"}
+              </Button>
+            </div>
           </div>
         </div>
       </div>

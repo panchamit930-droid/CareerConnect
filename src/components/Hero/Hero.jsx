@@ -1,7 +1,7 @@
 import { heroStyles as styles } from "./heroStyles";
 import { FaSearch } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-import heroImage from "../../assets/images/pngwing.com.png";
+import heroImage from "../../assets/images/hero3.png";
 
 const Hero = () => {
   return (
@@ -24,7 +24,7 @@ const Hero = () => {
           </p>
 
           {/* Search */}
-          <div className={styles.searchBox}>
+          {/* <div className={styles.searchBox}>
             <input
               type="text"
               placeholder="Search jobs..."
@@ -34,7 +34,7 @@ const Hero = () => {
             <button className={styles.searchButton}>
               <FaSearch />
             </button>
-          </div>
+          </div> */}
 
           {/* Buttons */}
           <div className={styles.buttons}>

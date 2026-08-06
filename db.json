@@ -16,13 +16,6 @@
       "portfolio": ""
     },
     {
-      "id": 1785606577365,
-      "fullName": "Panchami T",
-      "email": "panchamit93@gmail.com",
-      "password": "123456",
-      "role": "jobSeeker"
-    },
-    {
       "id": 1785609570112,
       "companyName": "Google",
       "contactPerson": "ian",
@@ -45,6 +38,54 @@
       "github": "",
       "linkedin": "https://www.linkedin.com/in/panchami-t/",
       "portfolio": ""
+    },
+    {
+      "id": 1785827948970,
+      "fullName": "kunju",
+      "email": "kunju@gmail.com",
+      "password": "123456",
+      "role": "jobSeeker",
+      "phone": "08157056819",
+      "location": "kakkanad",
+      "education": "Msc",
+      "experience": "2 yrs",
+      "skills": "JS, ReactJS",
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "github": "https://github.com/panchamit930-droid",
+      "linkedin": "",
+      "portfolio": ""
+    },
+    {
+      "id": 1785828467185,
+      "companyName": "Infosys",
+      "contactPerson": "Infosys",
+      "email": "infosys@gmail.com",
+      "password": "123456",
+      "role": "employer"
+    },
+    {
+      "id": 1785856149992,
+      "fullName": "Panchu",
+      "email": "panchamit93@gmail.com",
+      "password": "123456",
+      "role": "jobSeeker",
+      "phone": "09207850171",
+      "location": "Chelavoor",
+      "education": "Msc",
+      "experience": "2 yrs",
+      "skills": "JS, ReactJS, Python",
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "github": "https://github.com/panchamit930-droid",
+      "linkedin": "https://www.linkedin.com/in/panchami-t/",
+      "portfolio": ""
+    },
+    {
+      "id": 1785911241136,
+      "companyName": "TechNova",
+      "contactPerson": "Ian",
+      "email": "ian@gmail.com",
+      "password": "123456",
+      "role": "employer"
     }
   ],
   "jobs": [
@@ -66,6 +107,45 @@
       "companyName": "Google",
       "employerId": 1785609570112,
       "postedBy": "ian"
+    },
+    {
+      "id": 1785830304068,
+      "title": "Python Full Stach web developer",
+      "location": "Kochi",
+      "jobType": "Full Time",
+      "salary": "6.5 LPA",
+      "experience": "2 yrs",
+      "vacancies": 4,
+      "skills": [
+        "JS",
+        "ReactJS",
+        "Python"
+      ],
+      "responsibilities": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "requirements": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "companyName": "Infosys",
+      "employerId": 1785828467185,
+      "postedBy": "Infosys"
+    },
+    {
+      "id": 1785830405864,
+      "title": "React developer",
+      "location": "Chelavoor",
+      "jobType": "Internship",
+      "salary": "6 LPA",
+      "experience": "2 yrs",
+      "vacancies": 2,
+      "skills": [
+        "JS",
+        "ReactJS"
+      ],
+      "responsibilities": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "requirements": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "companyName": "Infosys",
+      "employerId": 1785828467185,
+      "postedBy": "Infosys"
     }
   ],
   "applications": [
@@ -90,8 +170,48 @@
       "jobId": 1785652854995,
       "employerId": 1785609570112,
       "applicantId": 1785749463740,
-      "status": "Pending",
+      "status": "Interview Scheduled",
       "appliedDate": "8/3/2026"
+    },
+    {
+      "id": 1785829078625,
+      "jobId": 1785652854995,
+      "employerId": 1785609570112,
+      "applicantId": 1785827948970,
+      "status": "Pending",
+      "appliedDate": "8/4/2026"
+    },
+    {
+      "id": 1785833687518,
+      "jobId": 1785830304068,
+      "employerId": 1785828467185,
+      "applicantId": 1785827948970,
+      "status": "Interview Scheduled",
+      "appliedDate": "8/4/2026"
+    },
+    {
+      "id": 1785833695400,
+      "jobId": 1785830405864,
+      "employerId": 1785828467185,
+      "applicantId": 1785827948970,
+      "status": "Selected",
+      "appliedDate": "8/4/2026"
+    },
+    {
+      "id": 1785858410472,
+      "jobId": 1785652854995,
+      "employerId": 1785609570112,
+      "applicantId": 1785856149992,
+      "status": "Pending",
+      "appliedDate": "8/4/2026"
+    },
+    {
+      "id": 1785859499713,
+      "jobId": 1785830304068,
+      "employerId": 1785828467185,
+      "applicantId": 1785856149992,
+      "status": "Shortlisted",
+      "appliedDate": "8/4/2026"
     }
   ]
 }

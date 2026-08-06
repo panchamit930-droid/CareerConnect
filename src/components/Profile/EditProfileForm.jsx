@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import { toast } from "react-toastify";
 import InputField from "../common/InputField/InputField";
 import Button from "../Button/Button";
 
@@ -70,10 +70,9 @@ const EditProfileForm = () => {
     );
 
     if (updateUserThunk.fulfilled.match(result)) {
+      alert("Profile updated successfully!");
       dispatch(updateCurrentUser(result.payload));
-
-      alert("Profile updated successfully.");
-    }
+    } 
   };
 
   return (

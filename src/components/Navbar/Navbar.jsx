@@ -1,17 +1,15 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
-import { FaMoon } from "react-icons/fa";
 import { navbarStyles as styles } from "./navbarStyles";
 import ThemeToggle from "../common/ThemeToggle/ThemeToggle";
+import { FaBriefcase } from "react-icons/fa";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const getNavLinkClass = ({ isActive }) =>
-    isActive
-      ? `${styles.navLink} ${styles.activeNavLink}`
-      : styles.navLink;
+    isActive ? `${styles.navLink} ${styles.activeNavLink}` : styles.navLink;
 
   const getMobileNavLinkClass = ({ isActive }) =>
     isActive
@@ -23,7 +21,8 @@ const Navbar = () => {
       <div className={styles.container}>
         {/* Logo */}
         <NavLink to="/" className={styles.logo}>
-          CareerConnect
+          <FaBriefcase className="text-blue-600 text-2xl" />
+          <span>CareerConnect</span>
         </NavLink>
 
         {/* Desktop Navigation */}
@@ -32,7 +31,7 @@ const Navbar = () => {
             Home
           </NavLink>
 
-          <NavLink to="/jobs" className={getNavLinkClass}>
+          <NavLink to="/explore-jobs" className={getNavLinkClass}>
             Jobs
           </NavLink>
 
@@ -46,7 +45,7 @@ const Navbar = () => {
           {/* <button>
             <FaMoon className="text-xl cursor-pointer text-gray-700" />
           </button> */}
-          <ThemeToggle/>
+          <ThemeToggle />
 
           <NavLink to="/login" className={styles.loginBtn}>
             Login
@@ -58,10 +57,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          className={styles.menuBtn}
-          onClick={() => setIsOpen(!isOpen)}
-        >
+        <button className={styles.menuBtn} onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <HiX /> : <HiMenuAlt3 />}
         </button>
       </div>

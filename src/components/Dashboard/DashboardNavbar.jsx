@@ -1,7 +1,9 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { FaMoon } from "react-icons/fa";
+
 import { logoutUserThunk } from "../../features/auth/authSlice";
+import { navbarStyles as styles } from "../Navbar/navbarStyles";
+import ThemeToggle from "../common/ThemeToggle/ThemeToggle";
 
 const DashboardNavbar = () => {
   const dispatch = useDispatch();
@@ -15,46 +17,127 @@ const DashboardNavbar = () => {
   };
 
   return (
-    <header className="bg-white dark:bg-gray-900 shadow-md">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-blue-600">CareerConnect</h1>
+    <header className={styles.header}>
+      <div className={styles.container}>
+        <NavLink to="/" className={styles.logo}>
+          CareerConnect
+        </NavLink>
 
-        <nav className="flex items-center gap-8">
+        <nav className={styles.nav}>
           {currentUser?.role === "jobSeeker" ? (
             <>
-              <NavLink to="/jobseeker/dashboard">Dashboard</NavLink>
+              <NavLink
+                to="/jobseeker/dashboard"
+                className={({ isActive }) =>
+                  isActive
+                    ? `${styles.navLink} ${styles.activeNavLink}`
+                    : styles.navLink
+                }
+              >
+                Dashboard
+              </NavLink>
 
-              <NavLink to="/jobs">Jobs</NavLink>
+              <NavLink
+                to="/jobs"
+                className={({ isActive }) =>
+                  isActive
+                    ? `${styles.navLink} ${styles.activeNavLink}`
+                    : styles.navLink
+                }
+              >
+                Jobs
+              </NavLink>
 
-              <NavLink to="/my-applications">Applications</NavLink>
+              <NavLink
+                to="/my-applications"
+                className={({ isActive }) =>
+                  isActive
+                    ? `${styles.navLink} ${styles.activeNavLink}`
+                    : styles.navLink
+                }
+              >
+                Applications
+              </NavLink>
 
-              <NavLink to="/profile">Profile</NavLink>
+              <NavLink
+                to="/profile"
+                className={({ isActive }) =>
+                  isActive
+                    ? `${styles.navLink} ${styles.activeNavLink}`
+                    : styles.navLink
+                }
+              >
+                Profile
+              </NavLink>
             </>
           ) : (
             <>
-              <NavLink to="/employer/dashboard">Dashboard</NavLink>
+              <NavLink
+                to="/employer/dashboard"
+                className={({ isActive }) =>
+                  isActive
+                    ? `${styles.navLink} ${styles.activeNavLink}`
+                    : styles.navLink
+                }
+              >
+                Dashboard
+              </NavLink>
 
-              <NavLink to="/post-job">Post Job</NavLink>
+              <NavLink
+                to="/post-job"
+                className={({ isActive }) =>
+                  isActive
+                    ? `${styles.navLink} ${styles.activeNavLink}`
+                    : styles.navLink
+                }
+              >
+                Post Job
+              </NavLink>
 
-              <NavLink to="/manage-jobs">Manage Jobs</NavLink>
+              <NavLink
+                to="/manage-jobs"
+                className={({ isActive }) =>
+                  isActive
+                    ? `${styles.navLink} ${styles.activeNavLink}`
+                    : styles.navLink
+                }
+              >
+                Manage Jobs
+              </NavLink>
 
-              <NavLink to="/profile">Profile</NavLink>
+              <NavLink
+                to="/profile"
+                className={({ isActive }) =>
+                  isActive
+                    ? `${styles.navLink} ${styles.activeNavLink}`
+                    : styles.navLink
+                }
+              >
+                Profile
+              </NavLink>
             </>
           )}
+        </nav>
 
-          <FaMoon className="cursor-pointer text-lg" />
+        <div className={styles.buttonContainer}>
+          {/* ThemeToggle goes here */}
 
-          <span className="font-medium">
+          <button>
+            <ThemeToggle />
+          </button> 
+          
+
+          <span className="font-medium dark:text-white">
             Hi, {currentUser?.fullName || currentUser?.companyName}
           </span>
 
           <button
             onClick={handleLogout}
-            className="bg-red-500 text-white px-4 py-2 rounded-lg"
+            className="bg-red-500 hover:bg-red-600 text-white px-5 py-2 rounded-lg transition"
           >
             Logout
           </button>
-        </nav>
+        </div>
       </div>
     </header>
   );
