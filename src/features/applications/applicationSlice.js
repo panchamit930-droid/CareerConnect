@@ -12,7 +12,7 @@ const initialState = {
   error: null,
 };
 
-// Apply Job
+
 export const applyJobThunk = createAsyncThunk(
   "applications/applyJob",
   async (applicationData, { rejectWithValue }) => {
@@ -24,7 +24,7 @@ export const applyJobThunk = createAsyncThunk(
   },
 );
 
-// Get Applications
+
 export const getApplicationsThunk = createAsyncThunk(
   "applications/getApplications",
   async (_, { rejectWithValue }) => {
@@ -56,8 +56,6 @@ const applicationSlice = createSlice({
 
   extraReducers: (builder) => {
     builder
-
-      // Apply
       .addCase(applyJobThunk.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -72,8 +70,7 @@ const applicationSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
-
-      // Get Applications
+      
       .addCase(getApplicationsThunk.pending, (state) => {
         state.loading = true;
       })

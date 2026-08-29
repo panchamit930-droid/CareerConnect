@@ -56,48 +56,94 @@ const MyApplications = () => {
               {myApplications.map((application) => (
                 <div
                   key={application.id}
-                  className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                  className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden"
                 >
-                  <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
-                    {application.job?.title}
-                  </h2>
+                  <div
+                    className={`h-1.5 ${
+                      application.status === "Pending"
+                        ? "bg-yellow-500"
+                        : application.status === "Shortlisted"
+                          ? "bg-blue-500"
+                          : application.status === "Interview Scheduled"
+                            ? "bg-purple-500"
+                            : application.status === "Selected"
+                              ? "bg-green-500"
+                              : "bg-red-500"
+                    }`}
+                  />
 
-                  <p className="text-gray-500 dark:text-gray-400">
-                    {application.job?.companyName}
-                  </p>
+                  <div className="p-6">
+                    <div className="flex justify-between items-start gap-4">
+                      <div>
+                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                          {application.job?.title}
+                        </h2>
 
-                  <p className="mt-2 text-gray-600 dark:text-gray-400">
-                    📍 {application.job?.location}
-                  </p>
+                        <p className="mt-1 text-blue-600 dark:text-blue-400 font-medium">
+                          {application.job?.companyName}
+                        </p>
+                      </div>
 
-                  <p className="mt-2 text-gray-600 dark:text-gray-400">
-                    💼 {application.job?.jobType}
-                  </p>
+                      <span
+                        className={`px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap ${
+                          application.status === "Pending"
+                            ? "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-300"
+                            : application.status === "Shortlisted"
+                              ? "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300"
+                              : application.status === "Interview Scheduled"
+                                ? "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300"
+                                : application.status === "Selected"
+                                  ? "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300"
+                                  : "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300"
+                        }`}
+                      >
+                        {application.status}
+                      </span>
+                    </div>
 
-                  <p className="mt-2 text-gray-600 dark:text-gray-400">
-                    💰 {application.job?.salary}
-                  </p>
+                    {/* Job Details */}
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+                      <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border border-blue-100 dark:border-blue-800 rounded-xl p-4">
+                        <p className="text-xs uppercase tracking-wide text-blue-600 dark:text-blue-300">
+                          Location
+                        </p>
 
-                  <div className="mt-3 flex justify-between">
-                    <span className="text-sm text-gray-600 dark:text-gray-400">
-                      Applied: {application.appliedDate}
-                    </span>
+                        <p className="mt-2 font-medium text-gray-900 dark:text-white">
+                          📍 {application.job?.location}
+                        </p>
+                      </div>
 
-                    <span
-                      className={`px-3 py-1 rounded-full text-sm font-medium ${
-                        application.status === "Pending"
-                          ? "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-300"
-                          : application.status === "Shortlisted"
-                            ? "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300"
-                            : application.status === "Interview Scheduled"
-                              ? "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300"
-                              : application.status === "Selected"
-                                ? "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300"
-                                : "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300"
-                      }`}
-                    >
-                      {application.status}
-                    </span>
+                      <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border border-blue-100 dark:border-blue-800 rounded-xl p-4">
+                        <p className="text-xs uppercase tracking-wide text-blue-600 dark:text-blue-300">
+                          Job Type
+                        </p>
+
+                        <p className="mt-2 font-medium text-gray-900 dark:text-white">
+                          💼 {application.job?.jobType}
+                        </p>
+                      </div>
+
+                      <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border border-blue-100 dark:border-blue-800 rounded-xl p-4">
+                        <p className="text-xs uppercase tracking-wide text-blue-600 dark:text-blue-300">
+                          Salary
+                        </p>
+
+                        <p className="mt-2 font-medium text-green-600 dark:text-green-400">
+                          💰 {application.job?.salary}
+                        </p>
+                      </div>
+                    </div>
+
+                    
+                    <div className="flex justify-between items-center mt-8 pt-5 border-t border-gray-200 dark:border-gray-700">
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        Applied on
+                      </p>
+
+                      <span className="font-medium text-gray-900 dark:text-white">
+                        {application.appliedDate}
+                      </span>
+                    </div>
                   </div>
                 </div>
               ))}

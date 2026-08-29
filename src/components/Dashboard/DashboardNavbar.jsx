@@ -56,7 +56,7 @@ const DashboardNavbar = () => {
                     : styles.navLink
                 }
               >
-                Applications
+                My Applications
               </NavLink>
 
               <NavLink
@@ -104,36 +104,20 @@ const DashboardNavbar = () => {
               >
                 Manage Jobs
               </NavLink>
-
-              <NavLink
-                to="/profile"
-                className={({ isActive }) =>
-                  isActive
-                    ? `${styles.navLink} ${styles.activeNavLink}`
-                    : styles.navLink
-                }
-              >
-                Profile
-              </NavLink>
             </>
           )}
         </nav>
 
         <div className={styles.buttonContainer}>
-          {/* ThemeToggle goes here */}
-
-          <button>
-            <ThemeToggle />
-          </button> 
-          
-
+          <ThemeToggle />
+        
           <span className="font-medium dark:text-white">
             Hi, {currentUser?.fullName || currentUser?.companyName}
           </span>
 
           <button
             onClick={handleLogout}
-            className="bg-red-500 hover:bg-red-600 text-white px-5 py-2 rounded-lg transition"
+            className="bg-red-500 hover:bg-red-600 text-white px-5 py-2 rounded-full transition"
           >
             Logout
           </button>

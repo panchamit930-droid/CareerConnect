@@ -140,7 +140,7 @@ const JobForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white dark:bg-gray-800 shadow rounded-xl p-8 space-y-5"
+      className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-lg p-8 space-y-5"
     >
       <InputField
         label="Job Title"
@@ -159,13 +159,30 @@ const JobForm = () => {
       />
 
       <div>
-        <label className="block mb-2 font-medium">Job Type</label>
+        <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300">
+          Job Type
+        </label>
 
         <select
           name="jobType"
           value={formData.jobType}
           onChange={handleChange}
-          className="w-full border rounded-lg px-4 py-3"
+          className="
+w-full
+border
+border-gray-300
+dark:border-gray-600
+rounded-lg
+px-4
+py-3
+bg-white
+dark:bg-gray-700
+text-gray-900
+dark:text-white
+focus:ring-2
+focus:ring-blue-500
+focus:outline-none
+"
         >
           <option value="">Select Job Type</option>
           <option>Full Time</option>
@@ -216,14 +233,33 @@ const JobForm = () => {
       />
 
       <div>
-        <label className="block mb-2 font-medium">Responsibilities</label>
+        <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300">
+          Responsibilities
+        </label>
 
         <textarea
           rows="4"
           name="responsibilities"
           value={formData.responsibilities}
           onChange={handleChange}
-          className="w-full border rounded-lg px-4 py-3"
+          className="
+w-full
+border
+border-gray-300
+dark:border-gray-600
+rounded-lg
+px-4
+py-3
+bg-white
+dark:bg-gray-700
+text-gray-900
+dark:text-white
+placeholder-gray-400
+dark:placeholder-gray-500
+focus:ring-2
+focus:ring-blue-500
+focus:outline-none
+"
         />
 
         {errors.responsibilities && (
@@ -232,14 +268,33 @@ const JobForm = () => {
       </div>
 
       <div>
-        <label className="block mb-2 font-medium">Requirements</label>
+        <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300">
+          Requirements
+        </label>
 
         <textarea
           rows="4"
           name="requirements"
           value={formData.requirements}
           onChange={handleChange}
-          className="w-full border rounded-lg px-4 py-3"
+          className="
+w-full
+border
+border-gray-300
+dark:border-gray-600
+rounded-lg
+px-4
+py-3
+bg-white
+dark:bg-gray-700
+text-gray-900
+dark:text-white
+placeholder-gray-400
+dark:placeholder-gray-500
+focus:ring-2
+focus:ring-blue-500
+focus:outline-none
+"
         />
 
         {errors.requirements && (
@@ -248,14 +303,33 @@ const JobForm = () => {
       </div>
 
       <div>
-        <label className="block mb-2 font-medium">Description</label>
+        <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300">
+          Description
+        </label>
 
         <textarea
           rows="5"
           name="description"
           value={formData.description}
           onChange={handleChange}
-          className="w-full border rounded-lg px-4 py-3"
+          className="
+w-full
+border
+border-gray-300
+dark:border-gray-600
+rounded-lg
+px-4
+py-3
+bg-white
+dark:bg-gray-700
+text-gray-900
+dark:text-white
+placeholder-gray-400
+dark:placeholder-gray-500
+focus:ring-2
+focus:ring-blue-500
+focus:outline-none
+"
         />
 
         {errors.description && (

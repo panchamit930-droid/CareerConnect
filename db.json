@@ -86,6 +86,28 @@
       "email": "ian@gmail.com",
       "password": "123456",
       "role": "employer"
+    },
+    {
+      "id": 1786031175341,
+      "companyName": "Techverse",
+      "contactPerson": "joy",
+      "email": "joy@gmail.com",
+      "password": "123456",
+      "role": "employer"
+    },
+    {
+      "id": 1786110938727,
+      "fullName": "ian",
+      "email": "ianimida@gmail.com",
+      "password": "123456",
+      "role": "jobSeeker"
+    },
+    {
+      "id": 1787925282041,
+      "fullName": "Joy",
+      "email": "joys@gmail.com",
+      "password": "123456",
+      "role": "jobSeeker"
     }
   ],
   "jobs": [
@@ -212,6 +234,14 @@
       "applicantId": 1785856149992,
       "status": "Shortlisted",
       "appliedDate": "8/4/2026"
+    },
+    {
+      "id": 1787933087274,
+      "jobId": 1785830304068,
+      "employerId": 1785828467185,
+      "applicantId": 1785749463740,
+      "status": "Pending",
+      "appliedDate": "8/28/2026"
     }
   ]
 }

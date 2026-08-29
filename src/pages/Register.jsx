@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import Navbar from "../components/Navbar/Navbar";
 import RoleSelector from "../components/Register/RoleSelector";
 import JobSeekerForm from "../components/Register/JobSeekerForm";
 import EmployerForm from "../components/Register/EmployerForm";
-import { useDispatch } from "react-redux";
 import { clearError } from "../features/auth/authSlice";
 
 const Register = () => {
@@ -16,15 +17,19 @@ const Register = () => {
   };
 
   return (
-    <section className="min-h-screen bg-gray-50 dark:bg-gray-900 flex justify-center items-center px-4">
-      <div className="w-full max-w-lg">
-        <RoleSelector role={role} setRole={handleRoleChange} />
+    <>
+      <Navbar />
 
-        {role === "jobSeeker" && <JobSeekerForm />}
+      <section className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300 pt-15 pb-12 px-4">
+        <div className="w-full max-w-lg mx-auto">
+          <RoleSelector role={role} setRole={handleRoleChange} />
 
-        {role === "employer" && <EmployerForm />}
-      </div>
-    </section>
+          {role === "jobSeeker" && <JobSeekerForm />}
+
+          {role === "employer" && <EmployerForm />}
+        </div>
+      </section>
+    </>
   );
 };
 

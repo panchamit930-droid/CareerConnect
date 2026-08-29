@@ -14,9 +14,6 @@ const initialState = {
   error: null,
 };
 
-// =======================
-// Register
-// =======================
 export const registerUserThunk = createAsyncThunk(
   "auth/registerUser",
   async (userData, { rejectWithValue }) => {
@@ -28,9 +25,6 @@ export const registerUserThunk = createAsyncThunk(
   },
 );
 
-// =======================
-// Login
-// =======================
 export const loginUserThunk = createAsyncThunk(
   "auth/loginUser",
   async (credentials, { rejectWithValue }) => {
@@ -42,9 +36,6 @@ export const loginUserThunk = createAsyncThunk(
   },
 );
 
-// =======================
-// Logout
-// =======================
 export const logoutUserThunk = createAsyncThunk("auth/logoutUser", async () => {
   await logoutUser();
 });
@@ -60,6 +51,7 @@ const authSlice = createSlice({
 
     updateCurrentUser: (state, action) => {
       state.currentUser = action.payload;
+      state.isAuthenticated = true;
 
       localStorage.setItem(
         "careerconnect_current_user",
@@ -70,11 +62,6 @@ const authSlice = createSlice({
 
   extraReducers: (builder) => {
     builder
-
-      // =======================
-      // Register
-      // =======================
-
       .addCase(registerUserThunk.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -83,20 +70,12 @@ const authSlice = createSlice({
       .addCase(registerUserThunk.fulfilled, (state) => {
         state.loading = false;
         state.error = null;
-
-        // DO NOT LOGIN HERE
-        // currentUser remains null
-        // isAuthenticated remains false
       })
 
       .addCase(registerUserThunk.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       })
-
-      // =======================
-      // Login
-      // =======================
 
       .addCase(loginUserThunk.pending, (state) => {
         state.loading = true;
@@ -116,10 +95,6 @@ const authSlice = createSlice({
         state.error = action.payload;
       })
 
-      // =======================
-      // Logout
-      // =======================
-
       .addCase(logoutUserThunk.fulfilled, (state) => {
         state.currentUser = null;
         state.isAuthenticated = false;
@@ -128,6 +103,6 @@ const authSlice = createSlice({
   },
 });
 
-export const { clearError ,updateCurrentUser} = authSlice.actions;
+export const { clearError, updateCurrentUser } = authSlice.actions;
 
 export default authSlice.reducer;

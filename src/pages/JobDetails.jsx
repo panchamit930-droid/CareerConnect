@@ -82,12 +82,11 @@ const JobDetails = () => {
               {selectedJob.companyName}
             </h2>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-6 mt-8">
               <div>
                 <p className="font-semibold text-gray-900 dark:text-white">
                   Location
                 </p>
-
                 <p className="text-gray-600 dark:text-gray-400">
                   {selectedJob.location}
                 </p>
@@ -97,7 +96,6 @@ const JobDetails = () => {
                 <p className="font-semibold text-gray-900 dark:text-white">
                   Job Type
                 </p>
-
                 <p className="text-gray-600 dark:text-gray-400">
                   {selectedJob.jobType}
                 </p>
@@ -107,7 +105,6 @@ const JobDetails = () => {
                 <p className="font-semibold text-gray-900 dark:text-white">
                   Salary
                 </p>
-
                 <p className="text-gray-600 dark:text-gray-400">
                   {selectedJob.salary}
                 </p>
@@ -117,9 +114,17 @@ const JobDetails = () => {
                 <p className="font-semibold text-gray-900 dark:text-white">
                   Experience
                 </p>
-
                 <p className="text-gray-600 dark:text-gray-400">
                   {selectedJob.experience || "-"}
+                </p>
+              </div>
+
+              <div>
+                <p className="font-semibold text-gray-900 dark:text-white">
+                  Vacancies
+                </p>
+                <p className="text-gray-600 dark:text-gray-400">
+                  {selectedJob.vacancies || "-"}
                 </p>
               </div>
             </div>
@@ -133,6 +138,34 @@ const JobDetails = () => {
                 {selectedJob.description}
               </p>
             </div>
+
+            {selectedJob.responsibilities && (
+              <div className="mt-10">
+                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
+                  Responsibilities
+                </h3>
+
+                <div className="mt-4 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl p-5">
+                  <p className="leading-7 whitespace-pre-line text-gray-700 dark:text-gray-300">
+                    {selectedJob.responsibilities}
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {selectedJob.requirements && (
+              <div className="mt-10">
+                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
+                  Requirements
+                </h3>
+
+                <div className="mt-4 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl p-5">
+                  <p className="leading-7 whitespace-pre-line text-gray-700 dark:text-gray-300">
+                    {selectedJob.requirements}
+                  </p>
+                </div>
+              </div>
+            )}
 
             {selectedJob.skills && (
               <div className="mt-10">
@@ -152,6 +185,24 @@ const JobDetails = () => {
                 </div>
               </div>
             )}
+
+            <div className="mt-10 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-6">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                Company Information
+              </h3>
+
+              <div className="mt-4 space-y-2">
+                <p className="text-gray-700 dark:text-gray-300">
+                  <span className="font-semibold">Company:</span>{" "}
+                  {selectedJob.companyName}
+                </p>
+
+                <p className="text-gray-700 dark:text-gray-300">
+                  <span className="font-semibold">Posted By:</span>{" "}
+                  {selectedJob.postedBy}
+                </p>
+              </div>
+            </div>
 
             <div className="mt-10">
               <Button onClick={handleApply} disabled={alreadyApplied}>

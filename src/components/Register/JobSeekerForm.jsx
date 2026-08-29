@@ -48,7 +48,6 @@ const JobSeekerForm = () => {
       return;
     }
 
-    // Remove confirmPassword before saving
     const { confirmPassword, ...userData } = formData;
 
     const resultAction = await dispatch(
@@ -115,7 +114,6 @@ const JobSeekerForm = () => {
           error={errors.confirmPassword}
         />
 
-        {/* Redux Error */}
         {error && <p className="text-center text-red-500 text-sm">{error}</p>}
         
         <Button type="submit" disabled={loading}>

@@ -13,7 +13,6 @@ const initialState = {
   error: null,
 };
 
-// Get All Users
 export const getUsersThunk = createAsyncThunk(
   "users/getUsers",
   async (_, { rejectWithValue }) => {
@@ -25,7 +24,7 @@ export const getUsersThunk = createAsyncThunk(
   }
 );
 
-// Get User By ID
+
 export const getUserByIdThunk = createAsyncThunk(
   "users/getUserById",
   async (id, { rejectWithValue }) => {
@@ -37,7 +36,6 @@ export const getUserByIdThunk = createAsyncThunk(
   }
 );
 
-// Update User
 export const updateUserThunk = createAsyncThunk(
   "users/updateUser",
   async ({ id, userData }, { rejectWithValue }) => {
@@ -62,8 +60,6 @@ const userSlice = createSlice({
 
   extraReducers: (builder) => {
     builder
-
-      // Get Users
       .addCase(getUsersThunk.pending, (state) => {
         state.loading = true;
       })
@@ -78,7 +74,6 @@ const userSlice = createSlice({
         state.error = action.payload;
       })
 
-      // Get User By ID
       .addCase(getUserByIdThunk.pending, (state) => {
         state.loading = true;
       })
@@ -93,7 +88,6 @@ const userSlice = createSlice({
         state.error = action.payload;
       })
 
-      // Update User
       .addCase(updateUserThunk.pending, (state) => {
         state.loading = true;
       })

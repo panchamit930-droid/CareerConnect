@@ -19,13 +19,13 @@ const Navbar = () => {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        {/* Logo */}
+        
         <NavLink to="/" className={styles.logo}>
           <FaBriefcase className="text-blue-600 text-2xl" />
           <span>CareerConnect</span>
         </NavLink>
 
-        {/* Desktop Navigation */}
+       
         <nav className={styles.nav}>
           <NavLink to="/" className={getNavLinkClass}>
             Home
@@ -40,11 +40,9 @@ const Navbar = () => {
           </NavLink>
         </nav>
 
-        {/* Desktop Buttons */}
+      
         <div className={styles.buttonContainer}>
-          {/* <button>
-            <FaMoon className="text-xl cursor-pointer text-gray-700" />
-          </button> */}
+  
           <ThemeToggle />
 
           <NavLink to="/login" className={styles.loginBtn}>
@@ -56,13 +54,12 @@ const Navbar = () => {
           </NavLink>
         </div>
 
-        {/* Mobile Menu Button */}
         <button className={styles.menuBtn} onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <HiX /> : <HiMenuAlt3 />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
+     
       {isOpen && (
         <div className={styles.mobileMenu}>
           <NavLink

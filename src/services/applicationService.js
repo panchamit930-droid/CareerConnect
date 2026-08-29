@@ -1,8 +1,5 @@
 import api from "../api/axios";
 
-// ==========================
-// Apply for a Job
-// ==========================
 export const applyJob = async (applicationData) => {
   const response = await api.get("/applications");
 
@@ -28,17 +25,11 @@ export const applyJob = async (applicationData) => {
   return result.data;
 };
 
-// ==========================
-// Get Applications
-// ==========================
 export const getApplications = async () => {
   const response = await api.get("/applications");
   return response.data;
 };
 
-// ==========================
-// Update Application Status
-// ==========================
 export const updateApplicationStatus = async (applicationId, status) => {
   const response = await api.patch(`/applications/${applicationId}`, {
     status,

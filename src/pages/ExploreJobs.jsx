@@ -7,6 +7,7 @@ import SearchBar from "../components/Jobs/SearchBar";
 import PublicJobCard from "../components/Jobs/PublicJobCard";
 
 import { getJobsThunk } from "../features/jobs/jobsSlice";
+import Spinner from "../components/common/Loader";
 
 const ExploreJobs = () => {
   const dispatch = useDispatch();
@@ -87,9 +88,7 @@ const ExploreJobs = () => {
           </div>
 
           {loading ? (
-            <h2 className="text-center text-lg dark:text-white">
-              Loading jobs...
-            </h2>
+            <Spinner/>
           ) : filteredJobs.length === 0 ? (
             <div className="text-center py-20">
               <div className="text-6xl">🔍</div>
