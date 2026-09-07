@@ -12,7 +12,7 @@ const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.grid}>
-          {/* Company */}
+      
           <div>
             <h2 className={styles.logo}>CareerConnect</h2>
 
@@ -22,7 +22,7 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Quick Links */}
+          
           <div>
             <h3 className={styles.heading}>Quick Links</h3>
 
@@ -47,7 +47,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Resources */}
+          
           <div>
             <h3 className={styles.heading}>Resources</h3>
 
@@ -66,7 +66,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact */}
+          
           <div>
             <h3 className={styles.heading}>Contact</h3>
 

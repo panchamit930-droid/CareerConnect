@@ -108,6 +108,22 @@
       "email": "joys@gmail.com",
       "password": "123456",
       "role": "jobSeeker"
+    },
+    {
+      "id": 1787976635747,
+      "companyName": "Techolas",
+      "contactPerson": "panchami",
+      "email": "panchami2@gmail.com",
+      "password": "123456",
+      "role": "employer"
+    },
+    {
+      "id": 1787976709712,
+      "companyName": "Techolas",
+      "contactPerson": "panchami",
+      "email": "panchami20@gmail.com",
+      "password": "123456",
+      "role": "employer"
     }
   ],
   "jobs": [
@@ -131,26 +147,6 @@
       "postedBy": "ian"
     },
     {
-      "id": 1785830304068,
-      "title": "Python Full Stach web developer",
-      "location": "Kochi",
-      "jobType": "Full Time",
-      "salary": "6.5 LPA",
-      "experience": "2 yrs",
-      "vacancies": 4,
-      "skills": [
-        "JS",
-        "ReactJS",
-        "Python"
-      ],
-      "responsibilities": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "requirements": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "companyName": "Infosys",
-      "employerId": 1785828467185,
-      "postedBy": "Infosys"
-    },
-    {
       "id": 1785830405864,
       "title": "React developer",
       "location": "Chelavoor",
@@ -165,6 +161,26 @@
       "responsibilities": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "requirements": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "companyName": "Infosys",
+      "employerId": 1785828467185,
+      "postedBy": "Infosys"
+    },
+    {
+      "id": 1787978009097,
+      "title": "Python full stack",
+      "location": "calicut",
+      "jobType": "Full Time",
+      "salary": "6 LPA",
+      "experience": "2 yrs",
+      "vacancies": 3,
+      "skills": [
+        "JS",
+        "ReactJS",
+        "Python"
+      ],
+      "responsibilities": "jhshjqvsyuqgsxgqygsqj",
+      "requirements": "absagsyugasga",
+      "description": "bxjsbxjhbsabjxh",
       "companyName": "Infosys",
       "employerId": 1785828467185,
       "postedBy": "Infosys"
@@ -204,14 +220,6 @@
       "appliedDate": "8/4/2026"
     },
     {
-      "id": 1785833687518,
-      "jobId": 1785830304068,
-      "employerId": 1785828467185,
-      "applicantId": 1785827948970,
-      "status": "Interview Scheduled",
-      "appliedDate": "8/4/2026"
-    },
-    {
       "id": 1785833695400,
       "jobId": 1785830405864,
       "employerId": 1785828467185,
@@ -228,20 +236,12 @@
       "appliedDate": "8/4/2026"
     },
     {
-      "id": 1785859499713,
-      "jobId": 1785830304068,
-      "employerId": 1785828467185,
-      "applicantId": 1785856149992,
-      "status": "Shortlisted",
-      "appliedDate": "8/4/2026"
-    },
-    {
-      "id": 1787933087274,
-      "jobId": 1785830304068,
+      "id": 1787978061327,
+      "jobId": 1787978009097,
       "employerId": 1785828467185,
       "applicantId": 1785749463740,
-      "status": "Pending",
-      "appliedDate": "8/28/2026"
+      "status": "Interview Scheduled",
+      "appliedDate": "8/29/2026"
     }
   ]
 }
